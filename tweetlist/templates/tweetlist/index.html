@@ -1,0 +1,50 @@
+
+{% extends 'tweetlist/base.html' %} 
+{% block content %}
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">Get Latest Tweets </div>
+    <div class="panel-body">
+        <form method="POST" id="tweet-form">
+        {% csrf_token %}
+        <input type="text" name='profilename' id='profilename'  class="form-control" placeholder="Profile Name">
+        <br>
+        <input type="number" name='tweetcount' id='tweetcount' class="form-control" min="1" max = "10" placeholder="7">
+        <br>
+        <button type = "submit" class="btn btn-info"  >Get Tweets</a>
+        </form>
+        </div>
+        </div>
+        <div class = "response" id = "response">
+        Tweets go by this way
+        </div>
+    <script>
+           $(document).ready(function () {
+                console.log("ready!");
+                $("#tweet-form").submit(function (event) {
+                    $.ajax({
+                        type: "POST",
+                        url: '{% url 'tweetlist:listweets' %}',
+                        data: $('#tweet-form').serialize(),
+                        success: function (dataa) {
+                            console.log(dataa);
+                    var storestring = " "
+                            for (tweet in dataa.tweets) {
+                                 storestring = storestring + "<div class='alert alert-info'>" +
+                                 dataa.tweets[tweet] + " </div>" 
+                            }
+                            storestring = storestring + " " 
+                            $('#response').html(storestring);
+                        },
+                        dataType: 'json'
+                    });
+                    event.preventDefault();
+                });
+            });
+    </script>
+  
+
+{% endblock %}
+    
+

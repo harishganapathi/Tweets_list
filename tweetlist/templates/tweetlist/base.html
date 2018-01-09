@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(255, 145, 0, 0.973);
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h1> lisTweets </h1>
+        <p> lisTweets is a simple site to list the Tweets of a twitter user </p>
+    </div>
+
+    <div class="container">
+         {% block content %} 
+         
+         
+         
+         
+         {% endblock %}
+
+        
+    </div>
+    
+</body>
+<footer>
+    <div class="footer">
+
+        <center>
+            © &nbsp; Powered by Django &hearts;
+        </center>
+    </div>
+</footer>
+
+</html>

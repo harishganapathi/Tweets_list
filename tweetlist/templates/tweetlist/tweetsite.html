@@ -1,0 +1,15 @@
+
+{% extends 'tweetlist/base.html' %} {% block content %}
+
+{% for every in tweets %}
+
+<div class="alert alert-info">
+     {{ every }}
+</div>
+
+
+
+
+{% endfor %}
+
+{% endblock %}
